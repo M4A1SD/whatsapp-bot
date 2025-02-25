@@ -1,7 +1,12 @@
 from pywa import WhatsApp, types
 from fastapi import FastAPI
+import requests
+import os
 
 class WhatsAppClient:
+    # Get TARGET_SERVER with a default value if not set
+    target_server = os.getenv('TARGET_SERVER', 'localhost:8002')
+    
     def __init__(self, app: FastAPI, config: dict):
         """Initialize WhatsApp client with configuration."""
         self.wa = WhatsApp(
@@ -21,10 +26,18 @@ class WhatsAppClient:
     def _register_handlers(self):
         """Register all message handlers."""
         @self.wa.on_message()
-        def hello(client: WhatsApp, msg: types.Message):
+        def recieve_message(client: WhatsApp, msg: types.Message):
             self.send_message(f"Hello {msg.from_user.name}!")
+
+            # Print debug information
+            print(f"Forwarding message to target server: http://{self.target_server}/recieve_message")
+            
+            try:
+                requests.post(f"http://{self.target_server}/recieve_message", json={"message": msg.text})
+            except Exception as e:
+                print(f"Error forwarding message: {str(e)}")
     
-    def send_message(self, text, to="+972543557471"):
+    def send_message(self, text, to=os.getenv('MY_PHONE_NUMBER')):
         """Send a message to the specified number."""
         self.wa.send_message(
             to=to,

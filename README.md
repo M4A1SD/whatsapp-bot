@@ -11,6 +11,7 @@ A WhatsApp bot application built with FastAPI and pywa wrapper.
    ```
 3. Set up your environment variables in a `.env` file like in the example:
    ```
+   PHONE_NUMBER_ID_WA=your_phone_id
    ACCESS_TOKEN_WA=your_access_token
    APP_ID_WA=your_app_id
    APP_SECRET_WA=your_app_secret

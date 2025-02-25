@@ -1,15 +1,15 @@
 from fastapi import FastAPI
 import uvicorn
 
-from .config import load_config
-from .whatsapp_client import WhatsAppClient
-from .api import setup_routes
+from config import load_config
+from whatsapp_client import WhatsAppClient
+from api import setup_routes
 
 # Create a FastAPI app
 fastapi_app = FastAPI()
 
-# external app creates config based on indevidual needs. and passes it to this package.
-def main(config: dict):
+def main():
+    config = load_config()
 
     # Initialize WhatsApp client
     whatsapp_client = WhatsAppClient(fastapi_app, config)
@@ -20,9 +20,8 @@ def main(config: dict):
     return fastapi_app
 
 # Create the application instance
-def start_app(config: dict):
-    app = main(config)
-    return app
+
+app = main()
 
 if __name__ == "__main__":
     uvicorn.run(app, host="localhost", port=8000)

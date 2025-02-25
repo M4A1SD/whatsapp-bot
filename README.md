@@ -61,3 +61,11 @@ make sure your 2 apps are on the same python envirment
 use ```pip install -e .```
 and then import the app like this 
 functionalities available : 
+
+
+
+
+
+
+
+if you wanna use this as it is, not like a package in another app, then run the standalone file.

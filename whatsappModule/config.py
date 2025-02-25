@@ -4,7 +4,7 @@ import os
 def load_config():
     """Load environment variables and return configuration."""
     # Clear existing environment variables to avoid caching (optional, for testing)
-    for key in ['PHONE_NUMBER_ID_WA', 'ACCESS_TOKEN_WA', 'APP_ID_WA', 'APP_SECRET_WA']:
+    for key in ['PHONE_NUMBER_ID_WA', 'ACCESS_TOKEN_WA', 'APP_ID_WA', 'APP_SECRET_WA', 'CALLBACK_URL', 'TARGET_SERVER', 'MY_PHONE_NUMBER']: 
         os.environ.pop(key, None)
 
     # Load environment variables fresh each run

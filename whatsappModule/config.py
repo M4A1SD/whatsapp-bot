@@ -13,6 +13,9 @@ def load_config():
     print("make sure ngrok updated")
     print("current ngrok url: ", os.getenv('CALLBACK_URL'))
 
+    print("Checking environment variables:")
+    print(os.getenv('ACCESS_TOKEN_WA')[:5])
+
     config = {
         'phone_id': os.getenv('PHONE_NUMBER_ID_WA'),
         'access_token': os.getenv('ACCESS_TOKEN_WA'),

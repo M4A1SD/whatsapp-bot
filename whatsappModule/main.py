@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 import uvicorn
 
-from config import load_config
-from whatsapp_client import WhatsAppClient
-from api import setup_routes
+from .config import load_config
+from .whatsapp_client import WhatsAppClient
+from .api import setup_routes
 
 # Create a FastAPI app
 fastapi_app = FastAPI()

@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from whatsapp_client import WhatsAppClient
+from .whatsapp_client import WhatsAppClient
 
 class SendMessageRequest(BaseModel):
     phone_number: str

@@ -1,0 +1,9 @@
+include README.md
+include LICENSE
+include .env.example
+recursive-include whatsappModule *.py
+recursive-include examples *
+global-exclude __pycache__
+global-exclude *.py[cod]
+global-exclude *.so
+global-exclude .DS_Store 

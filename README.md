@@ -1,15 +1,15 @@
 # WhatsApp Bot
 
-A WhatsApp bot application built with FastAPI and pywa.
+A WhatsApp bot application built with FastAPI and pywa wrapper.
 
 ## Setup
 
-1. Make sure you have Python 3.7+ installed
-2. Install dependencies:
+1. Install dependencies:
    ```
    pip install -r requirements.txt
+   maybe pip install -e .?
    ```
-3. Set up your environment variables in a `.env` file:
+3. Set up your environment variables in a `.env` file like in the example:
    ```
    PHONE_NUMBER_ID_WA=your_phone_id
    ACCESS_TOKEN_WA=your_access_token
@@ -45,4 +45,19 @@ python main.py
       "phone_number": "+1234567890",
       "message": "Hello, world!"
     }
-    ``` 
+    ```
+
+## Using the API with Python Requests
+
+You can use the Python `requests` library to send messages to your WhatsApp bot API. Here's an example:
+
+ see the `send_message_example.py` file.
+
+A shell script example is available in `curl_example.sh`. 
+
+##
+
+make sure your 2 apps are on the same python envirment
+use ```pip install -e .```
+and then import the app like this 
+functionalities available : 

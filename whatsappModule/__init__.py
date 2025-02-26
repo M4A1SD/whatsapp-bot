@@ -12,4 +12,3 @@ from .api import setup_routes, SendMessageRequest
 from .main import start_app
 
 
-__version__ = "0.1.6" 

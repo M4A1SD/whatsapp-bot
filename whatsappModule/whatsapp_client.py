@@ -27,10 +27,9 @@ class WhatsAppClient:
         """Register all message handlers."""
         @self.wa.on_message()
         def recieve_message(client: WhatsApp, msg: types.Message):
-            self.send_message(f"Hello {msg.from_user.name}!")
+            self.send_message(f"Request recieved! Working on it...")
 
             # Print debug information
-            print(f"Forwarding message to target server: http://{self.target_server}/receive_message")
             
             try:
                 requests.post(f"http://{self.target_server}/receive_message", json={"message": msg.text})

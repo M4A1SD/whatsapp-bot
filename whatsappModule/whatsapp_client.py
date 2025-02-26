@@ -30,10 +30,10 @@ class WhatsAppClient:
             self.send_message(f"Hello {msg.from_user.name}!")
 
             # Print debug information
-            print(f"Forwarding message to target server: http://{self.target_server}/recieve_message")
+            print(f"Forwarding message to target server: http://{self.target_server}/receive_message")
             
             try:
-                requests.post(f"http://{self.target_server}/recieve_message", json={"message": msg.text})
+                requests.post(f"http://{self.target_server}/receive_message", json={"message": msg.text})
             except Exception as e:
                 print(f"Error forwarding message: {str(e)}")
     

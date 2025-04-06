@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="whatsapp-bot",
-    version="0.1.7",
+    version="0.1.9",
     author="M4A1SD",
     description="A WhatsApp bot with FastAPI integration",
     long_description=long_description,

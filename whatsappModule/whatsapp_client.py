@@ -27,17 +27,21 @@ class WhatsAppClient:
         """Register all message handlers."""
         @self.wa.on_message()
         def recieve_message(client: WhatsApp, msg: types.Message):
-            self.send_message(f"Request recieved! Working on it...")
+            my_phone = msg.from_user.wa_id
+            self.send_message(text="Request recieved! Working on it...", to=my_phone)
 
             # Print debug information
-            
             try:
-                requests.post(f"http://{self.target_server}/receive_message", json={"message": msg.text})
+                requests.post(f"http://{self.target_server}/receive_message", json={
+                    "message": msg.text,
+                    "phone_number": my_phone
+                })
             except Exception as e:
                 print(f"Error forwarding message: {str(e)}")
     
-    def send_message(self, text, to=os.getenv('MY_PHONE_NUMBER')):
+    def send_message(self, text, to):
         """Send a message to the specified number."""
+        print(f"sending ${text} to ${to}")
         self.wa.send_message(
             to=to,
             text=text
